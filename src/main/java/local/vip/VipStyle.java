@@ -70,6 +70,8 @@ public final class VipStyle {
     public static Text server(Text original) { return server(original, username()); }
     // HUD and leaderboard text
     public static Text hud(Text original) {
+        // Chat keeps its VIP even while match names turn green
+        if (isPlayerMessage(original.getString())) return original;
         if (!VipSettings.enabled || !original.getString().contains(username())) return original;
         if (!VipSettings.enabled || !VipMatch.active()) return server(original);
         String plain = original.getString(), user = username();
@@ -137,10 +139,14 @@ public final class VipStyle {
             + "(?![A-Za-z0-9_])").matcher(plain);
         if (!match.find()) return original;
         int start = match.start(), end = match.end();
+        // Channel markers come before the sender, message separators after it
         int delimiter = -1;
-        for (int i = 0; i < plain.length(); i++) {
+        for (int i = end; i < plain.length(); i++) {
             if (":>»➜→".indexOf(plain.charAt(i)) >= 0) { delimiter = i; break; }
         }
+        String prefix = plain.substring(0, start);
+        boolean channel = prefix.matches("(?is)^\\s*(?:TEAM|ALL|GLOBAL|PARTY|GUILD|SQUAD)\\s*[»➜→]\\s*[^:>»➜→]*$");
+        if (!channel && prefix.chars().anyMatch(c -> ":>»➜→".indexOf(c) >= 0)) return original;
         if (start > 80) return original;
         boolean notification = Pattern.compile("\\s+has (?:joined|left)!(?:\\s*\\(\\d+/\\d+\\))?\\s*$")
             .matcher(plain.substring(end)).matches();
@@ -176,4 +182,6 @@ public final class VipStyle {
         return result;
     }
 }
+
+
 

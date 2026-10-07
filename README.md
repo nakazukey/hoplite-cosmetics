@@ -1,6 +1,6 @@
 # Hoplite VIP
 
-Client-side Minecraft **1.21.11 Fabric** mod by **Nakazukey**. Current version: **1.3.2**.
+Client-side Minecraft **1.21.11 Fabric** mod by **Nakazukey**. Current version: **1.3.5**.
 
 ## Features
 
@@ -17,7 +17,7 @@ Changes are local to your client. They do not change the server rank or what oth
 
 ## Install
 
-Select Minecraft 1.21.11 with Lunar + Fabric, remove any older version of the mod, and import `hoplite-vip-1.21.11-1.3.2.jar` in the profile's Mods section. Restart Minecraft.
+Select Minecraft 1.21.11 with Lunar + Fabric, remove any older version of the mod, and import `hoplite-vip-1.21.11-1.3.5.jar` in the profile's Mods section. Restart Minecraft.
 
 Requires **Java 21+** and **Fabric Loader 0.18.2+**. The required Fabric API modules are bundled.
 
@@ -58,7 +58,7 @@ The installable JAR is generated in `build/libs/`. The sources JAR is not an ins
 
 ## Compatibility
 
-The user confirmed version 1.3.2 works on their Lunar setup. Server format changes or different rendering mods may need adjustments. Unsigned player chat is recognized by sender prefixes; unusual formats may require a specific rule. Match detection uses server team/name colors and scoreboard titles.
+The user confirmed version 1.3.5 works on their Lunar setup. Server format changes or different rendering mods may need adjustments. Unsigned player chat is recognized by sender prefixes; unusual formats may require a specific rule. Match detection uses server team/name colors and scoreboard titles.
 
 The rose crown uses the supplied armor texture with the chestplate region removed. It replaces only the local player's rendered helmet, without changing the actual equipment or armor statistics.
 
@@ -81,3 +81,6 @@ git push -u origin main
 If Git requests an author identity, configure your own name and email before committing. The included `.gitignore` excludes generated builds, development caches and logs. The Gradle Wrapper JAR is intentionally included.
 
 To distribute the compiled mod, attach the installable JAR to a GitHub Release.
+
+
+

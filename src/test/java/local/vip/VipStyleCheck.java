@@ -5,6 +5,9 @@ public class VipStyleCheck {
     public static void main(String[] args) {
         check("<Alice> ciao", "<\ue100\ue002Alice> ciao");
         check("[VIP] Alice: ciao Alice", "[VIP] \ue100\ue002Alice: ciao Alice");
+        check("TEAM » 3⚔ UNRANKED Alice: hi", "TEAM » 3⚔ UNRANKED \ue100\ue002Alice: hi");
+        check("TEAM » Bob: Alice: hi", "TEAM » Bob: Alice: hi");
+        check("PARTY » Alice: hi Alice", "PARTY » \ue100\ue002Alice: hi Alice");
         check("Alice » ciao", "\ue100\ue002Alice » ciao");
         check("<Bob> ciao Alice", "<Bob> ciao Alice");
         check("<AliceExtra> ciao", "<AliceExtra> ciao");
@@ -99,6 +102,7 @@ public class VipStyleCheck {
         if (!actual.equals(expected)) throw new AssertionError(input + " => " + actual);
     }
 }
+
 
 
 

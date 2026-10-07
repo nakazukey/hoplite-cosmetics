@@ -2,6 +2,19 @@
   "required": true,
   "package": "local.vip.mixin",
   "compatibilityLevel": "JAVA_21",
-  "client": ["PlayerListMixin", "PlayerRendererMixin", "EntityRendererMixin", "ChatMixin", "TextDisplayMixin", "HudTextMixin", "ServerNameMixin", "RenderedTextMixin", "CrownPositionMixin"],
-  "injectors": { "defaultRequire": 1 }
+  "client": [
+    "PlayerListMixin",
+    "PlayerRendererMixin",
+    "EntityRendererMixin",
+    "ChatMixin",
+    "TextDisplayMixin",
+    "HudTextMixin",
+    "ServerNameMixin",
+    "RenderedTextMixin",
+    "CrownPositionMixin",
+    "ChatLayoutMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
