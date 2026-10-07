@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "vip_local",
+  "version": "1.3.2",
+  "name": "Hoplite VIP",
+  "authors": ["Nakazukey"],
+  "icon": "assets/vip_local/icon.png",
+  "description": "Client-side VIP badge and matching name colors, with a settings menu and self-first player list.",
+  "environment": "client",
+  "entrypoints": { "client": ["local.vip.VipClient"] },
+  "mixins": ["vip_local.mixins.json"],
+  "depends": { "fabricloader": ">=0.18.2", "minecraft": "1.21.11", "java": ">=21" }
+}

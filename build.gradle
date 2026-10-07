@@ -1,0 +1,23 @@
+plugins { id 'net.fabricmc.fabric-loom-remap' version '1.14.10' }
+version = '1.3.2'
+group = 'local.vip'
+base { archivesName = 'hoplite-vip-1.21.11' }
+repositories { mavenCentral() }
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.11'
+    mappings 'net.fabricmc:yarn:1.21.11+build.4:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.18.2'
+    ['fabric-api-base:1.0.5+4ebb5c083e', 'fabric-key-binding-api-v1:1.1.7+4fc5413f3e', 'fabric-lifecycle-events-v1:2.6.15+4ebb5c083e'].each {
+        modImplementation "net.fabricmc.fabric-api:${it}"
+        include "net.fabricmc.fabric-api:${it}"
+    }
+}
+java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21; withSourcesJar() }
+tasks.withType(JavaCompile).configureEach { options.release = 21; options.encoding = 'UTF-8' }
+tasks.register('verifyChat', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'local.vip.VipStyleCheck'
+}
+test { failOnNoDiscoveredTests = false }
+check.dependsOn verifyChat
